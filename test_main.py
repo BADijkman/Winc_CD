@@ -3,6 +3,7 @@ import main
 
 def test_index():
     assert main.index() == 'Hello, world!'
+    # assert main.index() == 'WRONG!'
 
 
 def test_about():
