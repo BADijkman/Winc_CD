@@ -2,8 +2,8 @@ import main
 
 
 def test_index():
-    assert main.index() == 'Hello, world!'
-    # assert main.index() == 'failed test!'
+    #assert main.index() == 'Hello, world!'
+    assert main.index() == 'failed test!'
 
 
 def test_about():
