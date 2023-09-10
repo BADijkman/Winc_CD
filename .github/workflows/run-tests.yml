@@ -1,4 +1,6 @@
+
 name: Deploy to Digital Ocean
+
 
 on: push
 
@@ -33,7 +35,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
           debug: true
           script: |
             cd/home/Winc_CD
