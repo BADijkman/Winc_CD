@@ -2,7 +2,6 @@ name: Run Tests
 
 on:
   push:
-    
 
 jobs:
   run-tests:
@@ -20,10 +19,14 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Debug SSH Private Key
+      - name: Debug SSH Configuration
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key.pem
-          cat private_key.pem
+          echo "Host: ${{ secrets.HOST }}"
+          echo "Username: ${{ secrets.USERNAME }}"
+          echo "SSH Private Key:"
+          echo "$SSH_PRIVATE_KEY" | head -n 1
+          echo "Remote Server SSH Configuration:"
+          ssh -v ${{ secrets.USERNAME }}@${{ secrets.HOST }} -i <(echo "$SSH_PRIVATE_KEY") -o StrictHostKeyChecking=no exit
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
