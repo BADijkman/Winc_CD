@@ -64,7 +64,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          # port: ${{ secrets.PORT }}
+          port: ${{ secrets.PORT }}
           debug: true
           script: |
             cd/home/Winc_CD
