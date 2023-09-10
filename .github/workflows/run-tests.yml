@@ -1,4 +1,4 @@
-name: Run Tests
+name: Deploy to DigitalOcean
 
 on: push
 
@@ -33,7 +33,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
+        
           debug: true
           script: |
             cd/home/Winc_CD
