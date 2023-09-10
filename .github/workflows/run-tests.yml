@@ -16,43 +16,12 @@ jobs:
           python-version: 3.11.0
 
       - name: Install Dependencies
-        run: python -m pip install --upgrade pip
+        run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run tests
         run: pytest
-
-      # - name: Debug SSH Configuration
-      #   run: |
-      #     echo "Host: ${{ secrets.HOST }}"
-      #     echo "Username: ${{ secrets.USERNAME }}"
-      #     echo "SSH Private Key:"
-      #     echo "$SSH_PRIVATE_KEY" | head -n 1
-      #     echo "Remote Server SSH Configuration:"
-      #     ssh -v ${{ secrets.USERNAME }}@${{ secrets.HOST }} -i <(echo "$SSH_PRIVATE_KEY") -o StrictHostKeyChecking=no exit
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      # - name: Copy file
-      #   if: ${{ success() }}
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     source: "."
-      #     target: "/home/Winc_CD"
-
-      # - name: Deploy to VPS
-      #   if: ${{ success() }}
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     script: |
-      #       cd /home/Winc_CD
-      #       sudo systemctl restart Winc_CD
 
   deploy:
     needs: build
