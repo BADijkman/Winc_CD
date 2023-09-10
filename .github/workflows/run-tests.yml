@@ -1,34 +1,37 @@
 name: Run Tests
 
-on:
-  push:
+on: push
 
 jobs:
-  run-tests:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Setup Python 3.11
         uses: actions/setup-python@v3
         with:
-          python-version: "3.11.0"
+          python-version: 3.11.0
+
       - name: Install Dependencies
         run: python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Run tests
         run: pytest
 
-      - name: Debug SSH Configuration
-        run: |
-          echo "Host: ${{ secrets.HOST }}"
-          echo "Username: ${{ secrets.USERNAME }}"
-          echo "SSH Private Key:"
-          echo "$SSH_PRIVATE_KEY" | head -n 1
-          echo "Remote Server SSH Configuration:"
-          ssh -v ${{ secrets.USERNAME }}@${{ secrets.HOST }} -i <(echo "$SSH_PRIVATE_KEY") -o StrictHostKeyChecking=no exit
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - name: Debug SSH Configuration
+      #   run: |
+      #     echo "Host: ${{ secrets.HOST }}"
+      #     echo "Username: ${{ secrets.USERNAME }}"
+      #     echo "SSH Private Key:"
+      #     echo "$SSH_PRIVATE_KEY" | head -n 1
+      #     echo "Remote Server SSH Configuration:"
+      #     ssh -v ${{ secrets.USERNAME }}@${{ secrets.HOST }} -i <(echo "$SSH_PRIVATE_KEY") -o StrictHostKeyChecking=no exit
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # - name: Copy file
       #   if: ${{ success() }}
@@ -50,3 +53,23 @@ jobs:
       #     script: |
       #       cd /home/Winc_CD
       #       sudo systemctl restart Winc_CD
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # port: ${{ secrets.PORT }}
+          debug: true
+          script: |
+            cd/home/Winc_CD
+            pwd
+            whoami
+            git pull origin main
+            systemctl restart Winc_CD.service
+            systemctl status Winc_CD
