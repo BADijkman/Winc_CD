@@ -38,7 +38,7 @@ jobs:
           port: ${{ secrets.PORT }}
           debug: true
           script: |
-            cd/home/Winc_CD
+            cd/home/
             pwd
             whoami
             git pull origin main
