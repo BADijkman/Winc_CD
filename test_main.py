@@ -2,7 +2,7 @@ import main
 
 
 def test_index():
-    assert main.index() == 'Hello, world!'
+    assert main.index() == 'Hello, world! changed'
     #assert main.index() == 'failed test!'
 
 
