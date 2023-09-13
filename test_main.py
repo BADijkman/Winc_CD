@@ -35,7 +35,8 @@ def test_dutch_eredivisie(client):
 # ******************************************#
 # test with error, so site is not deployed when pushed to repositorie
 
-# def test_soccerclubs(client):
-#     response = client.get("/soccerclubs")
+
+# def test_dutch_eredivisie(client):
+#     response = client.get("/dutch eredivisie")
 #     assert response.status_code == 200
-#     assert b"<title>FootbalClubs</title>" in response.data
+#     assert b"<title>English Premier League</title>" in response.data
