@@ -28,11 +28,11 @@ table,
 th,
 td {
   border: 1px solid;
-  margin-left: 25px;
 }
 
 th {
-  background-color: #b7d7f5;
+  background-color: #E0EFFE;
+  margin-left: 5px;
 }
 
 ul {
