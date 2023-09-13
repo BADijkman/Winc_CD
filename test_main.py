@@ -33,7 +33,7 @@ def test_about(client):
 #     assert b"<title>SoccerClubs</title>" in response.data
 
 # ******************************************#
-# test with error, so site is not deployed
+# test with error, so site is not deployed when pushed to rep
 
 def test_soccerclubs(client):
     response = client.get("/soccerclubs")
