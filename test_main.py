@@ -35,6 +35,7 @@ def test_english_premier_league(client):
 # ******************************************#
 # test with error, so site is not deployed when pushed to repositorie
 
+
 def test_dutch_eredivisie(client):
     response = client.get("/dutch eredivisie")
     assert response.status_code == 200
