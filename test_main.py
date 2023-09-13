@@ -22,7 +22,7 @@ def test_index(client):
 
 
 def test_english_premier_league(client):
-    response = client.get("/about")
+    response = client.get("/english premier league")
     assert response.status_code == 200
     assert b"<title>English Premier League</title>" in response.data
 
