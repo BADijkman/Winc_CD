@@ -1,10 +1,37 @@
-import main
+import pytest
+
+from main import app
 
 
-def test_index():
-    assert main.index() == 'Hello, world! changed again and again'
-    # assert main.index() == 'failed test!'
+@pytest.fixture
+def client():
+    client = app.test_client()
+    return client
 
 
-def test_about():
-    assert main.about() == 'This is the last assignment of Back-end'
+def test_redirect(client):
+    response = client.get("/home")
+    assert response.status_code == 302
+    assert response.location == "/"
+
+
+def test_index(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b"<title>Index</title>" in response.data
+
+
+def test_about(client):
+    response = client.get("/about")
+    assert response.status_code == 200
+    assert b"<title>About</title>" in response.data
+
+
+""" Write your own tests below."""
+
+
+def test_soccerclubs(client):
+    response = client.get("/soccerclubs")
+    assert response.status_code == 200
+    assert b"<title>SoccerClubs</title>" in response.data
+
