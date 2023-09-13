@@ -1,19 +1,21 @@
+@import url("https://fonts.cdnfonts.com/css/espn");
+
 body {
-    margin: 0 auto;
-    max-width: 720px;
-    font-size: 18px;
+  margin: 0 auto;
+  max-width: 720px;
+  font-size: 18px;
 }
 
 h1 {
-    text-align: center;
-    color : red;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: red;
+  font-family: "ESP_Bold", sans-serif;
 }
 
 .largeText {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .boldText {
-    font-weight: bold;
+  font-weight: bold;
 }
