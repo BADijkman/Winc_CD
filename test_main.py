@@ -27,7 +27,15 @@ def test_about(client):
     assert b"<title>About</title>" in response.data
 
 
+# def test_soccerclubs(client):
+#     response = client.get("/soccerclubs")
+#     assert response.status_code == 200
+#     assert b"<title>SoccerClubs</title>" in response.data
+
+# ******************************************#
+# test with error, so site is not deployed
+
 def test_soccerclubs(client):
     response = client.get("/soccerclubs")
-    assert response.status_code == 200
+    assert response.status_code == 100
     assert b"<title>SoccerClubs</title>" in response.data
