@@ -31,8 +31,11 @@ td {
 }
 
 th {
-  background-color: #E0EFFE;
-  margin-left: 5px;
+  background-color: #e0effe;
+}
+
+td {
+  margin-left: 10px;
 }
 
 ul {
