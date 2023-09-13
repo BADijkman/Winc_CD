@@ -21,21 +21,21 @@ def test_index(client):
     assert b"<title>Index</title>" in response.data
 
 
-def test_about(client):
+def test_english_premier_league(client):
     response = client.get("/about")
     assert response.status_code == 200
-    assert b"<title>About</title>" in response.data
+    assert b"<title>English Premier League</title>" in response.data
 
 
-# def test_soccerclubs(client):
-#     response = client.get("/soccerclubs")
-#     assert response.status_code == 200
-#     assert b"<title>SoccerClubs</title>" in response.data
+def test_dutch_eredivisie(client):
+    response = client.get("/dutch eredivisie")
+    assert response.status_code == 200
+    assert b"<title>Dutch Eredivisie</title>" in response.data
 
 # ******************************************#
 # test with error, so site is not deployed when pushed to repositorie
 
-def test_soccerclubs(client):
-    response = client.get("/soccerclubs")
-    assert response.status_code == 200
-    assert b"<title>FootbalClubs</title>" in response.data
+# def test_soccerclubs(client):
+#     response = client.get("/soccerclubs")
+#     assert response.status_code == 200
+#     assert b"<title>FootbalClubs</title>" in response.data
