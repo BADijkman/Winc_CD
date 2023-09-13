@@ -27,16 +27,16 @@ def test_english_premier_league(client):
     assert b"<title>English Premier League</title>" in response.data
 
 
-# def test_dutch_eredivisie(client):
-#     response = client.get("/dutch eredivisie")
-#     assert response.status_code == 200
-#     assert b"<title>Dutch Eredivisie</title>" in response.data
+def test_dutch_eredivisie(client):
+    response = client.get("/dutch eredivisie")
+    assert response.status_code == 200
+    assert b"<title>Dutch Eredivisie</title>" in response.data
 
 # ******************************************#
 # test with error, so site is not deployed when pushed to repositorie
 
 
-def test_dutch_eredivisie(client):
-    response = client.get("/dutch eredivisie")
-    assert response.status_code == 200
-    assert b"<title>English Premier League</title>" in response.data
+# def test_dutch_eredivisie(client):
+#     response = client.get("/dutch eredivisie")
+#     assert response.status_code == 200
+#     assert b"<title>English Premier League</title>" in response.data
