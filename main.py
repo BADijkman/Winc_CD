@@ -22,13 +22,3 @@ def about():
 @app.route("/soccerclubs")
 def soccerclubs():
     return render_template("soccerclubs.html", title="SoccerClubs")
-
-
-# with app.test_request_context():
-#     print(url_for('index'))
-#     print(url_for('soccerclubs'))
-#     print(url_for('about'))
-
-
-if __name__ == '__main__':
-    app.run()
