@@ -28,7 +28,12 @@ table,
 th,
 td {
   border: 1px solid;
-  margin-left: 5px;
+  margin-left: 25px;
+}
+
+table,
+th {
+  background-color: #b7d7f5;
 }
 
 ul {
