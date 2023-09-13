@@ -27,10 +27,7 @@ def test_about(client):
     assert b"<title>About</title>" in response.data
 
 
-""" Write your own tests below."""
-
-
 def test_soccerclubs(client):
     response = client.get("/soccerclubs")
-    assert response.status_code == 100
+    assert response.status_code == 200
     assert b"<title>SoccerClubs</title>" in response.data
