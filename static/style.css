@@ -20,6 +20,12 @@ h1 {
   font-weight: bold;
 }
 
-table, th, td {
-    border: 1px solid;
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+table {
+    width: 100%;
   }
