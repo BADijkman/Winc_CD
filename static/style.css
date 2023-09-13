@@ -19,3 +19,7 @@ h1 {
 .boldText {
   font-weight: bold;
 }
+
+table, th, td {
+    border: 1px solid;
+  }
