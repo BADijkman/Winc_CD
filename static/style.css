@@ -20,6 +20,10 @@ h1 {
   font-weight: bold;
 }
 
+table {
+  width: 100%;
+}
+
 table,
 th,
 td {
@@ -27,6 +31,6 @@ td {
   padding-left: 5px;
 }
 
-table {
-  width: 100%;
+ul {
+  list-style: none;
 }
