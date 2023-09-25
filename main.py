@@ -14,11 +14,11 @@ def redirect_home():
     return redirect('/')
 
 
-@app.route('/english premier league')
+@app.route('/english_premier_league')
 def english_premier_league():
     return render_template('english_premier_league.html', title='English Premier League')
 
 
-@app.route('/dutch eredivisie')
+@app.route('/dutch_eredivisie')
 def dutch_eredivisie():
     return render_template('dutch_eredivisie.html', title='Dutch Eredivisie')
