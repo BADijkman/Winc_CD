@@ -22,13 +22,13 @@ def test_index(client):
 
 
 def test_english_premier_league(client):
-    response = client.get("/english premier league")
+    response = client.get("/english_premier_league")
     assert response.status_code == 200
     assert b"<title>English Premier League</title>" in response.data
 
 
 def test_dutch_eredivisie(client):
-    response = client.get("/dutch eredivisie")
+    response = client.get("/dutch_eredivisie")
     assert response.status_code == 200
     assert b"<title>Dutch Eredivisie</title>" in response.data
 
